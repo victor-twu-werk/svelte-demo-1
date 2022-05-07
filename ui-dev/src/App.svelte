@@ -8,9 +8,9 @@
 	$: color = yellow ? 'yellow' : '#ff3e00'
 	$: name = firstName + ' ' + lastName
 	
-	const changeName = () => {
+	const changeName = (nm) => {
 		if (lastName === 'Twu') {
-			lastName = '607'
+			lastName = nm
 		} else{
 			lastName = 'Twu'
 		}
@@ -23,7 +23,7 @@
 
 <main>
 	<h1 style='color: {color}'>Hello {name}!</h1>
-	<button on:click={changeName}>toggle name last name</button>
+	<button on:click={()=> changeName('607')}>toggle name last name</button>
 	<button on:click={changeColor}>toggle color</button>
 </main>
 
