@@ -1,6 +1,7 @@
 export const cars = [
   {
     id: 1,
+    qty: 1,
     make: "Ferrari",
     model: "LaFerrari Aperta Hybrid",
     year: 2017,
@@ -10,6 +11,7 @@ export const cars = [
   },
   {
     id: 2,
+    qty: 1,
     make: "Ferrari",
     model: "F40",
     year: 1990,
@@ -19,6 +21,7 @@ export const cars = [
   },
   {
     id: 3,
+    qty: 1,
     make: "Ferrari",
     model: "Crockett & Tubbs Testarossa",
     year: 1985,
@@ -28,6 +31,7 @@ export const cars = [
   },
   {
     id: 4,
+    qty: 1,
     make: "Ferrari",
     model: "F8 Tributo",
     year: 2020,
@@ -37,6 +41,7 @@ export const cars = [
   },
   {
     id: 5,
+    qty: 1,
     make: "Rolls Royce",
     model: "Sweptail",
     year: 2017,
@@ -46,6 +51,7 @@ export const cars = [
   },
   {
     id: 6,
+    qty: 1,
     make: "Bentley",
     model: "Continental GT",
     year: 2020,
@@ -55,6 +61,7 @@ export const cars = [
   },
   {
     id: 7,
+    qty: 1,
     make: "Audi",
     model: "Ironman Car",
     year: 2012,
@@ -64,6 +71,7 @@ export const cars = [
   },
   {
     id: 8,
+    qty: 1,
     make: "Mercedes",
     model: "AMG GT C Roadster",
     year: 2020,
@@ -73,6 +81,7 @@ export const cars = [
   },
   {
     id: 9,
+    qty: 1,
     make: "Porche",
     model: "911 GT3",
     year: 2018,
@@ -82,6 +91,7 @@ export const cars = [
   },
   {
     id: 10,
+    qty: 1,
     make: "Porche",
     model: "Carrera GT",
     year: 2006,
