@@ -1,4 +1,7 @@
 <script>
+	import CarsList from './components/CarsList.svelte'
+	
+	
 	let firstName = 'Victor'
 	let lastName = 'Twu'
 	let yellow = false
@@ -15,23 +18,27 @@
 			lastName = 'Twu'
 		}
 	}
-
+	
 	const changeColor = () => {
 		yellow = !yellow
 	}
+
 </script>
 
 <main>
 	<h1 style='color: {color}'>Hello {name}!</h1>
 	<button on:click={()=> changeName('607')}>toggle name last name</button>
 	<button on:click={changeColor}>toggle color</button>
+
+
+	<CarsList/>
 </main>
 
 <style>
 	main {
 		height: 100vh;
 		text-align: center;
-		background-color: #272727;
+		/* background-color: #272727; */
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
@@ -43,6 +50,8 @@
 		font-size: 4em;
 		font-weight: 100;
 	}
+
+	
 
 	@media (min-width: 640px) {
 		main {
