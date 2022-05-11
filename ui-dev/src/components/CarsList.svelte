@@ -1,47 +1,66 @@
 <script>
     import { cars } from '../data/data'
+    import Card from './Card.svelte'
+    import CartItems from './CartItems.svelte'
 
     let cart = []
+    
+    $:totalItems = cart.reduce((acc, curr)=> acc + curr.qty, 0)
+
 
     const addItem = (id) => {
         const itemToAdd = cars.find(car=> car.id === id)
+        if ( itemToAdd.qty === 0 ) itemToAdd.qty = 1
         if (cart.includes(itemToAdd)) {
-          const existingItem = cart[cart.indexOf(itemToAdd)]
+            const existingItem = cart[cart.indexOf(itemToAdd)]
             existingItem.qty++
             cart = [...cart]
         } else {
             cart = [...cart, itemToAdd]
         }
     } 
+    
+    const removeProduct = (id) => {
+        const productToRemove = cart.find(item=> item.id === id)
+        cart = cart.filter(item=> item.id !== id)
+        productToRemove.qty = 1
+     }
 
-    const removeItem = (id) => {
-        cart = cart.filter(car=> car.id !== id)
+    const decrementItem = (id) => {
+        const itemToDecrementQty = cart.find(item=> item.id === id)
+        if ( itemToDecrementQty.qty === 1 ) {
+            cart = cart.filter(item=> item.id !== id)
+        }
+        itemToDecrementQty.qty--
+        cart = [...cart]
     }
+
 </script>
+   
+  
+<CartItems cart={cart} addItem={addItem} decrementItem={decrementItem} removeProduct={removeProduct}/>
 
+<h2>Quantity: {#if totalItems > 0}{totalItems}{/if}</h2>
 
-<div class="cart">
-    {#each cart as cartItem}
-        <div>
-            <h3>{cartItem.make} {cartItem.model} QTY: {cartItem.qty}</h3>
-        </div>
-    {/each}
-</div>
 
 {#each cars as car}
-<div>
-    <h2>{car.make} {car.model}</h2>
-
-    <img class='carThumb' src={car.img} alt='Car Pic'/>
-
-    <button on:click={()=> addItem(car.id)}>Add Item</button>
-    <button on:click={()=> removeItem(car.id)}>Remove Item</button>
-</div>
+    <Card car={car} addItem={addItem} />
 {/each}
-
+    
+    
 <style>
 
-    .carThumb {
-        width: 20rem;
-    }
 </style>
+       
+           
+        
+    
+
+
+
+  
+
+
+
+
+

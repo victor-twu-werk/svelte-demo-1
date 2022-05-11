@@ -1,36 +1,9 @@
 <script>
 	import CarsList from './components/CarsList.svelte'
-	
-	
-	let firstName = 'Victor'
-	let lastName = 'Twu'
-	let yellow = false
-	
-	//reactive value
-	
-	$: color = yellow ? 'yellow' : '#ff3e00'
-	$: name = firstName + ' ' + lastName
-	
-	const changeName = (nm) => {
-		if (lastName === 'Twu') {
-			lastName = nm
-		} else{
-			lastName = 'Twu'
-		}
-	}
-	
-	const changeColor = () => {
-		yellow = !yellow
-	}
-
 </script>
 
 <main>
-	<h1 style='color: {color}'>Hello {name}!</h1>
-	<button on:click={()=> changeName('607')}>toggle name last name</button>
-	<button on:click={changeColor}>toggle color</button>
-
-
+	<h1>The Shop</h1>
 	<CarsList/>
 </main>
 
