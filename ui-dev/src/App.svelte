@@ -1,20 +1,28 @@
 <script>
 	import CarsList from './components/CarsList.svelte'
+
 </script>
 
 <main>
 	<h1>The Shop</h1>
-	<CarsList/>
+	<div class="content">
+
+		<CarsList/>
+	</div>
 </main>
 
 <style>
 	main {
 		height: 100vh;
 		text-align: center;
-		/* background-color: #272727; */
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
+	}
+
+	.content {
+		width: 100%;
+		display: flex;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+		gap: 1rem;
 	}
 
 	h1 {
@@ -26,9 +34,5 @@
 
 	
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
+
 </style>

@@ -38,15 +38,15 @@
 </script>
    
   
-<CartItems cart={cart} addItem={addItem} decrementItem={decrementItem} removeProduct={removeProduct}/>
-
-<h2>Quantity: {#if totalItems > 0}{totalItems}{/if}</h2>
 
 
 {#each cars as car}
-    <Card car={car} addItem={addItem} />
+<Card car={car} addItem={addItem} />
 {/each}
-    
+
+<CartItems cart={cart} addItem={addItem} decrementItem={decrementItem} removeProduct={removeProduct}/>
+
+<h2>Quantity: {#if totalItems > 0}{totalItems}{/if}</h2>
     
 <style>
 
