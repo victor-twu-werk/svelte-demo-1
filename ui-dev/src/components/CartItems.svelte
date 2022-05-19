@@ -1,12 +1,11 @@
 <script>
-    export let cart
-    export let decrementItem
-    export let addItem
-    export let removeProduct
+
+    import { CartStore } from '../stores'
+    import { addItem, removeProduct, decrementItem } from '../cartOperations'
 </script>
 
 <div class="cartItems">
-    {#each cart as cartItem}
+    {#each $CartStore as cartItem}
         <div>
             <h3>{cartItem.make} {cartItem.model} QTY: {cartItem.qty}</h3>
             <button on:click={()=> addItem(cartItem.id)}>+</button>

@@ -1,12 +1,14 @@
 <script>
+	import { ShowCart } from './stores';
 	import CarsList from './components/CarsList.svelte'
-
+	import Header from './components/Header.svelte';
+	import CartItems from './components/CartItems.svelte'
 </script>
 
 <main>
-	<h1>The Shop</h1>
+	<Header/>
 	<div class="content">
-
+		{#if $ShowCart}<CartItems />{/if}
 		<CarsList/>
 	</div>
 </main>
@@ -18,21 +20,12 @@
 	}
 
 	.content {
+		padding-top: 1.5rem;
 		width: 100%;
 		display: flex;
 		justify-content: space-evenly;
 		flex-wrap: wrap;
-		gap: 1rem;
+		gap: 1.5rem;
 	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	
-
 
 </style>

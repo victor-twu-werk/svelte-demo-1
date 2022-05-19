@@ -1,7 +1,6 @@
 <script>
     export let car
-    export let addItem
-
+    import { addItem } from '../cartOperations'
 </script>
 
 <div class='card'>
@@ -12,7 +11,6 @@
     </div>
     <img class='carThumb' src={car.img} alt=''/>
     <button on:click={()=> addItem(car.id)}>Add To Cart</button>
- 
 </div>
 
 <style>
@@ -29,10 +27,7 @@
     .title {
         margin-bottom: 0;
     }    
-    .subTitle {
-
-    }
-      .carThumb {
+    .carThumb {
         width: 100%;
     }
 </style>
