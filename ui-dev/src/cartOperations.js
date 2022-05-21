@@ -43,8 +43,10 @@ export const decrementItem = (id) => {
 }
   
 export const toggleShowCart = () => {
-    console.log('clicked')
     ShowCart.update(value=> value = !value)
 }
       
-
+export const closeCart = () => {
+    ShowCart.update(value=> value = false)
+}
+  

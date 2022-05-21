@@ -1,13 +1,10 @@
 <script>
-    import { CartStore } from '../stores'
-    import { toggleShowCart } from '../cartOperations'
-    $:totalItems = $CartStore.reduce((acc, curr)=> acc + curr.qty, 0)
-  
+    import CartIcon from './CartIcon.svelte'
 </script>
 
 <header>
     <h1>Logo</h1>
-    <span on:click={()=> toggleShowCart()}>Cart: {totalItems}</span>
+    <CartIcon/>
 </header>
 
 <style>
@@ -16,6 +13,10 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border: solid 1px;
     }
 </style>
+    
+   
+
+
+  

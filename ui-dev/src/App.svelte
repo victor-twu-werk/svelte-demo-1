@@ -6,11 +6,18 @@
 </script>
 
 <main>
+	
 	<Header/>
+	
 	<div class="content">
-		{#if $ShowCart}<CartItems />{/if}
+		{#if $ShowCart}
+			<CartItems/>
+		{/if}
+		
 		<CarsList/>
+	
 	</div>
+
 </main>
 
 <style>
@@ -20,6 +27,7 @@
 	}
 
 	.content {
+		position: relative;
 		padding-top: 1.5rem;
 		width: 100%;
 		display: flex;
