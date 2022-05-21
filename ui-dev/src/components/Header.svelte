@@ -9,12 +9,14 @@
 
 <style>
     header {
-        padding: 0 1rem 0 1rem;
+        padding: 0 2rem 0 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        color: var(--saffron)
     }
 </style>
+ 
     
    
 

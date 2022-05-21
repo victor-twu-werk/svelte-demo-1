@@ -1,3 +1,12 @@
+:root {
+	--dark: #292F36;
+	--greenAqua: #119DA4;
+	--saffron: #F39237;
+	--white: #FFFFFF;
+	--lightShadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+	--deepShadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
 html, body {
 	position: relative;
 	width: 100%;
@@ -44,21 +53,4 @@ input:disabled {
 	color: #ccc;
 }
 
-button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
-}
-
-button:disabled {
-	color: #999;
-}
-
-button:not(:disabled):active {
-	background-color: #ddd;
-}
-
-button:focus {
-	border-color: #666;
-}
 

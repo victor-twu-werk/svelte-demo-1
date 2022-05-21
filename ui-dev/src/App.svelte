@@ -22,8 +22,9 @@
 
 <style>
 	main {
-		height: 100vh;
-		text-align: center;
+		min-height: 100vh;
+		background-color: var(--white);
+		/* text-align: center; */
 	}
 
 	.content {

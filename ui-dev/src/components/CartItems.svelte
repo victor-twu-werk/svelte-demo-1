@@ -3,6 +3,8 @@
     import { CartStore } from '../stores'
     import { addItem, removeProduct, decrementItem, closeCart } from '../cartOperations'
     $:totalItems = $CartStore.reduce((acc, curr)=> acc + curr.qty, 0)
+    $:grandTotal =  $CartStore.reduce((acc, curr)=> acc + curr.subTotal, 0)
+    $:doucheBagTax = grandTotal * .25
 </script>
 
 <div class="container" on:click={closeCart}>
@@ -19,19 +21,21 @@
                 <h3>{cartItem.make} {cartItem.model} QTY: {cartItem.qty}</h3>
                 <button on:click={()=> {
                     addItem(cartItem.id)
-              
+                    
                     }}>+</button>
                 <button on:click={()=> {
                     decrementItem(cartItem.id)
               
                     }}>-</button>
                 <button on:click={()=> removeProduct(cartItem.id)}>Remove Product</button>
-                sub total: {cartItem.price * cartItem.qty}
+                sub total: {cartItem.subTotal}
                 
             </div>
         {/each}
         Quantity: {totalItems}
- 
+        Total: {grandTotal}
+        Douche Bag Tax: {doucheBagTax}
+        Grand Total: {grandTotal + doucheBagTax}
     </div>
 </div>
 
@@ -50,7 +54,7 @@
         width: 70vw;
         background-color: white;
         border-radius: .3rem;
-        box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+        box-shadow: var(--deepShadow);
     }
 
 </style>

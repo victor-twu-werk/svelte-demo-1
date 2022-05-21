@@ -5,29 +5,59 @@
 
 <div class='card'>
     <div class="titleContainer">
-
-        <h2 class='title'>{car.year} {car.make}</h2>
-        <h3 class='subTitle'>{car.model}</h3>
+        <span>{car.year} {car.make}</span>
+        <span>{car.model}</span>
     </div>
-    <img class='carThumb' src={car.img} alt=''/>
+    <div class="imageContainer">
+        <img src={car.img} alt={car.model}/>
+    </div>
     <button on:click={()=> addItem(car.id)}>Add To Cart</button>
 </div>
 
 <style>
     .card {
+        position: relative;
+        background-color: var(--white);
         width: 18rem;
-      
+        color: var(--greenAqua);
         border-radius: .3rem;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        box-shadow: var(--lightShadow);
     }
     .card, .titleContainer {
         display: flex;
         flex-direction: column;
     }
-    .title {
-        margin-bottom: 0;
+    .titleContainer {
+        margin: 1rem .5rem 1rem .5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--saffron);
+    }
+    .imageContainer {
+        margin-left: .5rem;
+        margin-right: .5rem;
+        width: 95%;
+        height: 40%;
     }    
-    .carThumb {
+    img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: .3rem;
+    }
+    button {
+        position: absolute;
+        bottom: .5rem;
+        left: .5rem;
+        right: .5rem;
+        background-color: var(--greenAqua);
+        border: none;
+        color: var(--white);
+        height: 2rem;
+        font-size: small;
+        border-radius: .3rem;
     }
 </style>
+   
+
+
+        
