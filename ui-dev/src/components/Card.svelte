@@ -1,6 +1,14 @@
 <script>
     export let car
     import { addItem } from '../cartOperations'
+
+    let showNotification = false
+
+    const addedMessage = () => {
+        showNotification = true
+        setTimeout(()=> showNotification = false, 950)
+    }
+
 </script>
 
 <div class='card'>
@@ -11,7 +19,11 @@
     <div class="imageContainer">
         <img src={car.img} alt={car.model}/>
     </div>
-    <button on:click={()=> addItem(car.id)}>Add To Cart</button>
+    <button on:click={()=> {
+        addItem(car.id)
+        addedMessage()
+    }}>Add To Cart</button>
+    {#if showNotification}<h4 class="addedMsg">ADDED {car.model.toUpperCase()}</h4>{/if}
 </div>
 
 <style>
@@ -50,11 +62,30 @@
         left: .5rem;
         right: .5rem;
         background-color: var(--greenAqua);
-        border: none;
+        border: solid 1px var(--greenAqua);
         color: var(--white);
         height: 2rem;
         font-size: small;
         border-radius: .3rem;
+        transition: .3s;
+    }
+    button:hover {
+        cursor: pointer;
+        background-color: var(--white);
+        color: var(--greenAqua);
+    }
+    .addedMsg{
+        position: absolute;
+        bottom: .5rem;
+        left: .5rem;
+        right: .5rem;
+        color: var(--white);
+        filter: drop-shadow(0 0 .3rem var(--saffron));
+        animation: floatUp 1s;
+    }
+    @keyframes floatUp {
+        0% {opacity: 0; transform: translateY(0)}
+        100% {opacity: 1; transform: translateY(-8rem)}
     }
 </style>
    

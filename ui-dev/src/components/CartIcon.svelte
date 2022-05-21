@@ -24,5 +24,8 @@
         transform: translate(-50%, -50%);
         color: white;
     }
+    .cart:hover {
+        cursor: pointer;
+    }
 </style>
 
