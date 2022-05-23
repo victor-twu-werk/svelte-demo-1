@@ -1,4 +1,5 @@
 <script>
+    import { formatMoney } from '../cartOperations'
     export let cartItem
     export let addItem
     export let decrementItem
@@ -20,7 +21,7 @@
         </div>
         <div class="subTotalContainer">
             <span>Sub Total:</span>
-            <span>{cartItem.subTotal}</span>
+            <span>{formatMoney(cartItem.subTotal)}</span>
         </div>
     </div>
 
