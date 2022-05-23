@@ -24,7 +24,6 @@
 	main {
 		min-height: 100vh;
 		background-color: var(--white);
-		/* text-align: center; */
 	}
 
 	.content {

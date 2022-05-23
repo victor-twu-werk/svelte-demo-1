@@ -1,8 +1,8 @@
 <script>
-    import { slide, scale } from 'svelte/transition'
+    import { slide } from 'svelte/transition'
     import { CartStore } from '../stores'
     import CartItem from './CartItem.svelte'
-    import { addItem, removeProduct, decrementItem, closeCart, formatMoney } from '../cartOperations'
+    import { addItem, removeProduct, decrementItem, closeCart, clearCart, formatMoney } from '../cartOperations'
     $:totalItems = $CartStore.reduce((acc, curr)=> acc + curr.qty, 0)
     $:grandTotal =  $CartStore.reduce((acc, curr)=> acc + curr.subTotal, 0)
     $:doucheBagTax = grandTotal * .25
@@ -11,12 +11,14 @@
 <div class="container" on:click={closeCart}>
     <div
         in:slide
-        out:scale 
+        out:slide 
         class="cartItems" 
         on:click={(e)=> e.stopPropagation()}
         >
-
-        <h2 class="title">{#if totalItems}Your Items{:else}Your cart is empty{/if}</h2>
+        <header>
+           <span on:click={closeCart}>{'< Back to Shop'}</span>
+            <h2 class="title">{#if totalItems}Your Items{:else}Your cart is empty{/if}</h2>
+        </header>
         {#each $CartStore as cartItem}
             <CartItem 
                 cartItem={cartItem} 
@@ -32,6 +34,7 @@
                 <span class="lineItem">Total: <span>{formatMoney(grandTotal)}</span></span>
                 <span class="lineItem douche">Douche Bag Tax: <span>{formatMoney(doucheBagTax)}</span></span>
                 <span class="lineItem">Grand Total: <span>{formatMoney(grandTotal + doucheBagTax)}</span></span>
+                {#if totalItems}<button class="clearBtn" on:click={clearCart}>Clear Cart</button>{/if}
             </div>
         </div>
     </div>
@@ -48,8 +51,15 @@
         justify-content: center;
         z-index: 1;
     }
-    .title {
+    header {
+        flex-direction: column;
         color: var(--saffron)
+    }
+    header > span {
+        font-size: small;
+    }
+    header > span:hover {
+        cursor: pointer;
     }
     .cartItems {
         margin-top: 3rem;
@@ -65,7 +75,7 @@
         flex-direction: row-reverse;
     }
     .totals {
-        width: 33%;
+        width: 50%;
         display: flex;
         flex-direction: column;
         font-size: large;
@@ -78,7 +88,22 @@
     .douche {
         border-bottom: solid 1px var(--greenAqua);
     }
+    .clearBtn {
+        background-color: var(--greenAqua);
+        border: solid 1px var(--greenAqua);
+        color: var(--white);
+        height: 2rem;
+        font-size: small;
+        border-radius: .3rem;
+        transition: .3s;
+    }
+    .clearBtn:hover{
+        cursor: pointer;
+        background-color: var(--white);
+        color: var(--greenAqua);
+    }
 </style>
+    
        
 
 

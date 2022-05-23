@@ -3,7 +3,10 @@
 </script>
 
 <header>
-    <h1>Logo</h1>
+    <div class="logoContainer">
+        <h2>Russ Hanneman's</h2>
+        <span>TRES COMMAS CAR SHOP</span>
+    </div>
     <CartIcon/>
 </header>
 
@@ -15,7 +18,26 @@
         align-items: center;
         color: var(--saffron)
     }
+    .logoContainer {
+        display: flex;
+        flex-direction: column;
+    }
+    h2, .logoContainer > span {
+        border-left: solid 3px var(--greenAqua);
+        padding-left: .5rem;
+    }
+    h2 {
+        margin-bottom: 0;
+    }
+    .logoContainer > span {
+        font-style: italic;
+    }
 </style>
+        
+      
+        
+    
+
  
     
    

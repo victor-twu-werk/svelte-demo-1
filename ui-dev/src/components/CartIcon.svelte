@@ -1,11 +1,12 @@
 <script>
     import Icon from '@iconify/svelte'
-    import { CartStore } from '../stores'
+    import { CartStore, ShowCart } from '../stores'
     import { toggleShowCart } from '../cartOperations'
+    
     $:totalItems = $CartStore.reduce((acc, curr)=> acc + curr.qty, 0)
 </script>
 
-<div class="cart" on:click={()=> toggleShowCart()}> 
+<div style:opacity={$ShowCart ? .7 : 1} class="cart" on:click={()=> toggleShowCart()}> 
     <Icon  icon="mdi:cart" style="font-size: 3rem"/>
     <span class="numItems">
         {totalItems}

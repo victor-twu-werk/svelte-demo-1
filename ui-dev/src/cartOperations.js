@@ -58,7 +58,10 @@ export const closeCart = () => {
     ShowCart.update(value=> value = false)
 }
        
- // TODO clear cart function         
+ // TODO clear cart function
+ export const clearCart = () => {
+     CartStore.update(currentCart=> currentCart = [])
+ }         
         
  // Format into $000,000.00 on UI    
 

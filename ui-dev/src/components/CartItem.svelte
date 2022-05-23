@@ -1,4 +1,5 @@
 <script>
+    import { scale } from 'svelte/transition'
     import { formatMoney } from '../cartOperations'
     export let cartItem
     export let addItem
@@ -6,7 +7,7 @@
     export let removeProduct
 </script>
 
-<div class='card'>
+<div class='card' in:scale out:scale>
     <button class="removeBtn" on:click={()=> removeProduct(cartItem.id)}>&#10005;</button>
     <h3>{cartItem.year} {cartItem.make} {cartItem.model} </h3>
     <div class="addBtnsContainer">
@@ -39,7 +40,8 @@
         margin: 1rem 0 1rem;
         padding: .5rem;
         box-shadow: var(--lightShadow);
-        color: var(--greenAqua)
+        color: var(--greenAqua);
+        border-radius: .3rem;
     }
     .removeBtn, .incrementBtn, .decrementBtn {
         border: none;
