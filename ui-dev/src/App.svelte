@@ -1,6 +1,7 @@
 <script>
+	import { Router } from 'svelte-router-spa'
+	import { routes } from './routes'
 	import { ShowCart } from './stores';
-	import CarsList from './components/CarsList.svelte'
 	import Header from './components/Header.svelte';
 	import CartItems from './components/CartItems.svelte'
 </script>
@@ -10,14 +11,15 @@
 	<Header/>
 	
 	<div class="content">
+	
+		<Router {routes}/>
+
 		{#if $ShowCart}
 			<CartItems/>
 		{/if}
-		
-		<CarsList/>
 	
 	</div>
-
+	
 </main>
 
 <style>
@@ -37,3 +39,9 @@
 	}
 
 </style>
+
+		
+
+
+	
+

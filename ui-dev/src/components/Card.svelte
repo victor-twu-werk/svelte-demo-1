@@ -1,4 +1,5 @@
 <script>
+    import { fade } from 'svelte/transition' 
     export let car
     import { addItem } from '../cartOperations'
 
@@ -11,7 +12,7 @@
 
 </script>
 
-<div class='card'>
+<div in:fade out:fade class='card'>
     <div class="titleContainer">
         <span>{car.year} {car.make}</span>
         <span>{car.model}</span>

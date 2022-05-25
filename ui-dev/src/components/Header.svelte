@@ -7,6 +7,10 @@
         <h2>Russ Hanneman's</h2>
         <span>TRES COMMAS CAR SHOP</span>
     </div>
+    <nav>
+        <a href='/'>app</a>
+        <a href='/presentation'>notes</a>
+    </nav>
     <CartIcon/>
 </header>
 
@@ -17,6 +21,12 @@
         justify-content: space-between;
         align-items: center;
         color: var(--saffron)
+    }
+ 
+   a {
+        margin: 1rem;
+        color: var(--saffron);
+        opacity: .5;
     }
     .logoContainer {
         display: flex;
