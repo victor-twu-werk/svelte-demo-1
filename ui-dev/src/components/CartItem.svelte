@@ -7,7 +7,9 @@
     export let removeProduct
 </script>
 
-<div class='card' in:scale out:scale>
+
+
+<div class='card' in:scale='{{duration: 500}}' out:scale='{{duration: 500}}'>
     <button class="removeBtn" on:click={()=> removeProduct(cartItem.id)}>&#10005;</button>
     <h3>{cartItem.year} {cartItem.make} {cartItem.model} </h3>
     <div class="addBtnsContainer">
@@ -25,11 +27,11 @@
             <span>{formatMoney(cartItem.subTotal)}</span>
         </div>
     </div>
+</div>
+    
 
    
   
-    
-</div>
 
 <style>
     .card{

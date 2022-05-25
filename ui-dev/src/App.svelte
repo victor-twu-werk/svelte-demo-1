@@ -23,7 +23,7 @@
 <style>
 	main {
 		min-height: 100vh;
-		background-color: var(--white);
+		background-color: rgb(255, 255, 250);
 	}
 
 	.content {

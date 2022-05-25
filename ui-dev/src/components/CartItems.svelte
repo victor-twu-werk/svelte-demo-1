@@ -1,17 +1,24 @@
 <script>
-    import { slide } from 'svelte/transition'
+    
+    import { slide, fly} from 'svelte/transition'
     import { CartStore } from '../stores'
     import CartItem from './CartItem.svelte'
     import { addItem, removeProduct, decrementItem, closeCart, clearCart, formatMoney } from '../cartOperations'
+  
     $:totalItems = $CartStore.reduce((acc, curr)=> acc + curr.qty, 0)
+    
     $:grandTotal =  $CartStore.reduce((acc, curr)=> acc + curr.subTotal, 0)
+    
     $:doucheBagTax = grandTotal * .25
+
+    // in:slide
+    // out:slide
 </script>
 
 <div class="container" on:click={closeCart}>
     <div
-        in:slide
-        out:slide 
+        in:fly={{x: 500, duration: 500}}
+        out:fly={{x: -500, duration: 500}}
         class="cartItems" 
         on:click={(e)=> e.stopPropagation()}
         >
@@ -19,26 +26,27 @@
            <span on:click={closeCart}>{'< Back to Shop'}</span>
             <h2 class="title">{#if totalItems}Your Items{:else}Your cart is empty{/if}</h2>
         </header>
-        {#each $CartStore as cartItem}
+        {#each $CartStore as cartItem (cartItem.id)}
             <CartItem 
                 cartItem={cartItem} 
                 addItem={addItem} 
                 decrementItem={decrementItem} 
                 removeProduct={removeProduct} 
                 />
-  
         {/each}
-        <div class="totalsContainer">
-            <div class="totals">
-                <span class="lineItem">Quantity: <span>{totalItems}</span></span>
-                <span class="lineItem">Total: <span>{formatMoney(grandTotal)}</span></span>
-                <span class="lineItem douche">Douche Bag Tax: <span>{formatMoney(doucheBagTax)}</span></span>
-                <span class="lineItem">Grand Total: <span>{formatMoney(grandTotal + doucheBagTax)}</span></span>
-                {#if totalItems}<button class="clearBtn" on:click={clearCart}>Clear Cart</button>{/if}
+            <div class="totalsContainer">
+                <div class="totals">
+                    <span class="lineItem">Quantity: <span>{totalItems}</span></span>
+                    <span class="lineItem">Total: <span>{formatMoney(grandTotal)}</span></span>
+                    <span class="lineItem douche">Douche Bag Tax: <span>{formatMoney(doucheBagTax)}</span></span>
+                    <span class="lineItem">Grand Total: <span>{formatMoney(grandTotal + doucheBagTax)}</span></span>
+                    {#if totalItems}<button class="clearBtn" on:click={clearCart}>Clear Cart</button>{/if}
+                </div>
             </div>
         </div>
     </div>
-</div>
+    
+      
 
 
 

@@ -65,11 +65,12 @@ export const closeCart = () => {
         
  // Format into $000,000.00 on UI    
 
-export const formatMoney = (amount) => {
-    const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD'
-    })
+ const formatter = new Intl.NumberFormat('en-US', {
+     style: 'currency',
+     currency: 'USD'
+ })
+
+ export const formatMoney = (amount) => {
     return formatter.format(amount)
 }
 
